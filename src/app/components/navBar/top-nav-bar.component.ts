@@ -1,0 +1,63 @@
+import { Component, OnInit } from '@angular/core';
+
+import { DayService } from '../../services/day.service';
+
+import { EventsManager } from '../../managers/events.manager';
+
+@Component({
+    moduleId: module.id,
+    selector: 'top-nav-bar',
+    templateUrl: 'top-nav-bar.component.html'
+})
+
+export class TopNavBarComponent implements OnInit {
+    month: number;
+    monthName: string;
+    year: number;
+
+    constructor(private dayService: DayService,
+        private eventsManager: EventsManager) { }
+
+    ngOnInit(): void {
+        this.eventsManager.goToDateEmitter.subscribe((date) => {
+            if (date) {
+                this.year = date.getFullYear();
+                this.month = date.getMonth();
+                this.monthName = this.dayService.getMonthName(this.month);
+            }
+        });
+        this.eventsManager.goToMonthEmitter.subscribe((date) => {
+            if (date) {
+                this.year = date.getFullYear();
+                this.month = date.getMonth();
+                this.monthName = this.dayService.getMonthName(this.month);
+            }
+        });
+    }
+    
+    goToPrevMonth() {
+        var year = this.year;
+        var month = this.month;
+        month--;
+        if (month == -1) {
+            year--;
+            month = 11;
+        }
+        this.eventsManager.goToMonth(new Date(year, month, 1));
+    }
+
+    goToNextMonth() {
+        var year = this.year;
+        var month = this.month;
+        month++;
+        if (month == 12) {
+            year++;
+            month = 0;
+        }
+        this.eventsManager.goToMonth(new Date(year, month, 1));
+    }
+
+    goToYear() {
+        this.eventsManager.goToYear(this.year);
+    }
+}

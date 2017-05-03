@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <td>ראשון</td>
+        <td>שני</td>
+        <td>שלישי</td>
+        <td>רביעי</td>
+        <td>חמישי</td>
+        <td>שישי</td>
+        <td>שבת</td>
+    </tr>
+    <tr *ngFor="let week of weeks">
+        <td *ngFor="let day of week">
+            <day [day]="day" [month]="month" [routerLink]="['', day.year, day.month, day.date]"></day>
+        </td>
+    </tr>
+</table>

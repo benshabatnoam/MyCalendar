@@ -1,0 +1,7 @@
+span.link {
+    color: cornflowerblue;
+    cursor: pointer;
+}
+span.link:hover {
+    text-decoration-line: underline;
+}

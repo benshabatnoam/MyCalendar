@@ -1,0 +1,31 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header" style="float:right">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">היומן שלי</a>
+    </div>
+    <div class="collapse navbar-collapse"  style="float:right;margin-right:120px">
+      <ul class="nav navbar-nav">
+        <li><a href="" (click)="goToNextMonth(); false">></a></li>
+        <li style="width: 150px;text-align: center"><a href="" (click)="goToYear(); false">{{monthName}} {{year}}</a></li>
+        <li><a href="" (click)="goToPrevMonth(); false"><</a></li>
+      </ul>
+    </div>
+</div><!--/.navbar -->
+
+<!--<table>
+    <tr>
+        <td>
+            <button (click)="goToPrevMonth();"><</button>
+        </td>
+        <td style="width: 200px;text-align: center">
+            <h2 [routerLink]="['', year]">{{monthName}} {{year}}</h2>
+        </td>
+        <td>
+            <button (click)="goToNextMonth();">></button>
+        </td>
+    </tr>
+</table>-->
