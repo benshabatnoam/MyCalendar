@@ -18,15 +18,13 @@ var DayDetailsComponent = (function () {
         this.aRoute = aRoute;
         this.eventsManager = eventsManager;
         this.dayService = dayService;
-        this.arvitChanged = new core_1.EventEmitter();
-        this.arvit = false;
     }
     DayDetailsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.aRoute.params.subscribe(function (params) {
-            _this.date = params['day'];
-            _this.month = params['month'];
-            _this.year = params['year'];
+            _this.date = +params['day'];
+            _this.month = +params['month'];
+            _this.year = +params['year'];
             _this.day = new Date(_this.year, _this.month, _this.date);
             _this.dayDesc = "יום " + _this.dayService.getDayName(_this.day) + ' ' + _this.date + ' ' +
                 _this.dayService.getMonthName(_this.month) + ' ' + _this.year;
@@ -36,7 +34,9 @@ var DayDetailsComponent = (function () {
                 if (!_this.dayDetails)
                     _this.dayDetails = new day_details_1.DayDetails(_this.date, _this.month, _this.year);
             })
-                .catch(function (error) { return console.log('error in init day details'); });
+                .catch(function (error) {
+                console.log('error in init day details');
+            });
         });
     };
     DayDetailsComponent.prototype.save = function () {

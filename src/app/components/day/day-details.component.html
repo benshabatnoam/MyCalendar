@@ -1,5 +1,13 @@
 <h2>{{dayDesc}}</h2>
 <div *ngIf="dayDetails">
+    <table class="table table-fit">
+        <tr>
+            <th>קיצה</th>
+            <td>
+                <input type="checkbox" [(ngModel)]="dayDetails.kitza"/>                
+            </td>
+        </tr>
+    </table>
     <table class="table table-bordered">
         <thead class="thead-defualt">
             <tr>
@@ -36,13 +44,39 @@
                     <input type="checkbox" *ngIf="dayDetails.arvit" [(ngModel)]="dayDetails.arvitInMinyan"/>
                 </td>
             </tr>
-            <tr>
-                <td>לימוד</td>
-                <td>
-                    <input type="checkbox" [(ngModel)]="dayDetails.limud"/>
-                </td>
-            </tr>
         </tbody>
+    </table>
+    <table class="table table-fit">
+        <tr>
+            <th>לימוד</th>
+            <td>
+                <input type="checkbox" [(ngModel)]="dayDetails.limud"/>
+            </td>
+        </tr>
+    </table>
+    <table class="table table-bordered" *ngIf="dayDetails.limud">
+        <thead>
+            <tr>
+                <th>מוסר</th>
+                <th>חומש</th>
+                <th>משנה</th>
+                <th>גמרא</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>
+                <input type="checkbox" *ngIf="dayDetails.limud" [(ngModel)]="dayDetails.musar"/>
+            </td>
+            <td>
+                <input type="checkbox" *ngIf="dayDetails.limud" [(ngModel)]="dayDetails.humash"/>
+            </td>
+            <td>
+                <input type="checkbox" *ngIf="dayDetails.limud" [(ngModel)]="dayDetails.mishna"/>
+            </td>
+            <td>
+                <input type="checkbox" *ngIf="dayDetails.limud" [(ngModel)]="dayDetails.gmara"/>
+            </td>
+        </tr>
     </table>
     <br/>
     <button class="button" (click)="save();">שמור</button>

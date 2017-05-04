@@ -2,13 +2,18 @@ export class DayDetails {
     date: number;
     month: number;
     year: number;
-    arvit: boolean;
-    arvitInMinyan: boolean;
-    minha: boolean;
-    minhaInMinyan: boolean;
-    shaharit: boolean;
-    shaharitInMinyan: boolean;
-    limud: boolean;
+    kitza: boolean = false;
+    arvit: boolean = false;
+    arvitInMinyan: boolean = false;
+    minha: boolean = false;
+    minhaInMinyan: boolean = false;
+    shaharit: boolean = false;
+    shaharitInMinyan: boolean = false;
+    limud: boolean = false;
+    musar: boolean = false;
+    humash: boolean = false;
+    mishna: boolean = false;
+    gmara: boolean = false;
 
     constructor(date: number, month: number, year: number) {
         this.date = date;

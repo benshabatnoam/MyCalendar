@@ -1,3 +1,6 @@
+.table-fit {
+    white-space: nowrap;width: 1%;
+}
 th {
     text-align: right;
 }

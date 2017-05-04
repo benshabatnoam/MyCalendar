@@ -20,19 +20,14 @@ export class DayDetailsComponent implements OnInit {
     year: number;
     day: Date;
     dayDetails: DayDetails;
-    arvit: boolean;
-    arvitChanged = new EventEmitter<boolean>();
-
-    constructor (private aRoute: ActivatedRoute, private eventsManager: EventsManager,
-    private dayService: DayService) {
-        this.arvit = false;
-    }
+    
+    constructor (private aRoute: ActivatedRoute, private eventsManager: EventsManager, private dayService: DayService) { }
 
     ngOnInit(): void {
         this.aRoute.params.subscribe(params => {
-            this.date = params['day'];
-            this.month = params['month'];
-            this.year = params['year'];
+            this.date = +params['day'];
+            this.month = +params['month'];
+            this.year = +params['year'];
 
             this.day = new Date(this.year, this.month, this.date);
             this.dayDesc = "יום " + this.dayService.getDayName(this.day) + ' ' + this.date + ' ' +
@@ -44,7 +39,9 @@ export class DayDetailsComponent implements OnInit {
                     if (!this.dayDetails)
                         this.dayDetails = new DayDetails(this.date, this.month, this.year);
                 })
-                .catch(error => console.log('error in init day details'));
+                .catch(error => {
+                    console.log('error in init day details')
+                });
         })
     }
     
