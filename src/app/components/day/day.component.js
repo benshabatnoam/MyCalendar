@@ -25,7 +25,8 @@ var DayComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'day',
-            templateUrl: './day.component.html'
+            templateUrl: './day.component.html',
+            styleUrls: ['./day.component.css']
         }), 
         __metadata('design:paramtypes', [])
     ], DayComponent);

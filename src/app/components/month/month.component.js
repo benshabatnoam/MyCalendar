@@ -11,11 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var day_service_1 = require('../../services/day.service');
+var events_manager_1 = require('../../managers/events.manager');
 var day_1 = require('../../models/day');
 var MonthComponent = (function () {
-    function MonthComponent(aRoute, dayService) {
+    function MonthComponent(aRoute, dayService, eventsManager) {
         this.aRoute = aRoute;
         this.dayService = dayService;
+        this.eventsManager = eventsManager;
     }
     MonthComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -70,12 +72,16 @@ var MonthComponent = (function () {
     MonthComponent.prototype.isSaturday = function (date) {
         return date.getDay() == 6;
     };
+    MonthComponent.prototype.goToDate = function (day) {
+        this.eventsManager.goToDate(new Date(day.year, day.month, day.date));
+    };
     MonthComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            templateUrl: 'month.component.html'
+            templateUrl: 'month.component.html',
+            styleUrls: ['month.component.css']
         }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute, day_service_1.DayService])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, day_service_1.DayService, events_manager_1.EventsManager])
     ], MonthComponent);
     return MonthComponent;
 }());

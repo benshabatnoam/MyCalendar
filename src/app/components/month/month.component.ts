@@ -3,11 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 
 import { DayService } from '../../services/day.service';
 
+import { EventsManager } from '../../managers/events.manager';
+
 import { Day } from '../../models/day';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'month.component.html'
+    templateUrl: 'month.component.html',
+    styleUrls: ['month.component.css']
 })
 
 export class MonthComponent implements OnInit {
@@ -17,7 +20,7 @@ export class MonthComponent implements OnInit {
     monthName: string;
     year: number;
     
-    constructor(private aRoute: ActivatedRoute, private dayService: DayService) { }
+    constructor(private aRoute: ActivatedRoute, private dayService: DayService, private eventsManager: EventsManager) { }
 
     ngOnInit(): void {
         this.aRoute.params.subscribe(params => {
@@ -76,5 +79,9 @@ export class MonthComponent implements OnInit {
 
     isSaturday (date: Date) {
         return date.getDay() == 6;
+    }
+
+    goToDate(day: Day) {
+        this.eventsManager.goToDate(new Date(day.year, day.month, day.date));
     }
 }

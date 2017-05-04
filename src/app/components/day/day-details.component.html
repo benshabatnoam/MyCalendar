@@ -1,59 +1,50 @@
 <h2>{{dayDesc}}</h2>
 <div *ngIf="dayDetails">
-    <table>
-        <tr>
-            <th></th>
-            <th>כן</th>
-            <th>לא</th>
-            <th>מנין</th>
-        </tr>
-        <tr>
-            <td>שחרית</td>
-            <td>
-                <input type="radio" name="shaharit" [value]="true" [(ngModel)]="dayDetails.shaharit"/>
-            </td>
-            <td>
-                <input type="radio" name="shaharit" [value]="false" [(ngModel)]="dayDetails.shaharit"/>
-            </td>
-            <td>
-                <input type="checkbox" name="shaharit" *ngIf="dayDetails.shaharit" [(ngModel)]="dayDetails.shaharitInMinyan"/>                
-            </td>
-        </tr>
-        <tr>
-            <td>מנחה</td>
-            <td>
-                <input type="radio" name="minha" [value]="true" [(ngModel)]="dayDetails.minha"/>
-            </td>
-            <td>
-                <input type="radio" name="minha" [value]="false" [(ngModel)]="dayDetails.minha"/>
-            </td>
-            <td>
-                <input type="checkbox" name="minha" *ngIf="dayDetails.minha" [(ngModel)]="dayDetails.minhaInMinyan"/>
-            </td>
-        </tr>
-        <tr>
-            <td>ערבית</td>
-            <td>
-                <input type="radio" name="arvit" [value]="true" [(ngModel)]="dayDetails.arvit"/>
-            </td>
-            <td>
-                <input type="radio" name="arvit" [value]="false" [(ngModel)]="dayDetails.arvit"/>
-            </td>
-            <td>
-                <input type="checkbox" name="arvit" *ngIf="dayDetails.arvit" [(ngModel)]="dayDetails.arvitInMinyan"/>
-            </td>
-        </tr>
-        <tr>
-            <td>לימוד</td>
-            <td>
-                <input type="radio" name="limud" [value]="true" [(ngModel)]="dayDetails.limud"/>
-            </td>
-            <td>
-                <input type="radio" name="limud" [value]="false" [(ngModel)]="dayDetails.limud"/>
-            </td>
-        </tr>
+    <table class="table table-bordered">
+        <thead class="thead-defualt">
+            <tr>
+                <th>תפילה</th>
+                <th>התפללתי</th>
+                <th>במנין</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>שחרית</td>
+                <td>
+                    <input type="checkbox" [(ngModel)]="dayDetails.shaharit"/>                
+                </td>
+                <td>
+                    <input type="checkbox" *ngIf="dayDetails.shaharit" [(ngModel)]="dayDetails.shaharitInMinyan"/>                
+                </td>
+            </tr>
+            <tr>
+                <td>מנחה</td>
+                <td>
+                    <input type="checkbox" [(ngModel)]="dayDetails.minha"/>
+                </td>
+                <td>
+                    <input type="checkbox" *ngIf="dayDetails.minha" [(ngModel)]="dayDetails.minhaInMinyan"/>
+                </td>
+            </tr>
+            <tr>
+                <td>ערבית</td>
+                <td>
+                    <input type="checkbox" [(ngModel)]="dayDetails.arvit"/>
+                </td>
+                <td>
+                    <input type="checkbox" *ngIf="dayDetails.arvit" [(ngModel)]="dayDetails.arvitInMinyan"/>
+                </td>
+            </tr>
+            <tr>
+                <td>לימוד</td>
+                <td>
+                    <input type="checkbox" [(ngModel)]="dayDetails.limud"/>
+                </td>
+            </tr>
+        </tbody>
     </table>
     <br/>
-    <button (click)="save();">שמור</button>
-    <button [routerLink]="['', year, month]">בטל</button>
+    <button class="button" (click)="save();">שמור</button>
+    <button class="button" (click)="cancel();">בטל</button>
 </div>

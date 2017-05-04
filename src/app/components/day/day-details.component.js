@@ -24,16 +24,17 @@ var DayDetailsComponent = (function () {
     DayDetailsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.aRoute.params.subscribe(function (params) {
-            _this.day = params['day'];
+            _this.date = params['day'];
             _this.month = params['month'];
             _this.year = params['year'];
-            var day = new Date(_this.year, _this.month, _this.day);
-            _this.dayDesc = "יום " + _this.dayService.getDayName(day) + ' ' + _this.day + ' ' + _this.dayService.getMonthName(_this.month) + ' ' + _this.year;
-            _this.dayService.getDayDetails(_this.day, _this.month, _this.year)
+            _this.day = new Date(_this.year, _this.month, _this.date);
+            _this.dayDesc = "יום " + _this.dayService.getDayName(_this.day) + ' ' + _this.date + ' ' +
+                _this.dayService.getMonthName(_this.month) + ' ' + _this.year;
+            _this.dayService.getDayDetails(_this.date, _this.month, _this.year)
                 .then(function (response) {
                 _this.dayDetails = response.json();
                 if (!_this.dayDetails)
-                    _this.dayDetails = new day_details_1.DayDetails(_this.day, _this.month, _this.year);
+                    _this.dayDetails = new day_details_1.DayDetails(_this.date, _this.month, _this.year);
             })
                 .catch(function (error) { return console.log('error in init day details'); });
         });
@@ -48,10 +49,14 @@ var DayDetailsComponent = (function () {
             _this.eventsManager.goToMonth(new Date(_this.year, _this.month, 1));
         });
     };
+    DayDetailsComponent.prototype.cancel = function () {
+        this.eventsManager.goToMonth(this.day);
+    };
     DayDetailsComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            templateUrl: 'day-details.component.html'
+            templateUrl: 'day-details.component.html',
+            styleUrls: ['day-details.component.css']
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, events_manager_1.EventsManager, day_service_1.DayService])
     ], DayDetailsComponent);
