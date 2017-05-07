@@ -2,7 +2,7 @@
 <div *ngIf="dayDetails">
     <table class="table table-fit">
         <tr>
-            <th>קיצה</th>
+            <th>קיצה בזמן</th>
             <td>
                 <input type="checkbox" [(ngModel)]="dayDetails.kitza"/>                
             </td>
@@ -57,6 +57,8 @@
     <table class="table table-bordered" *ngIf="dayDetails.limud">
         <thead>
             <tr>
+                <th>הלכה</th>
+                <th>לשון הרע</th>
                 <th>מוסר</th>
                 <th>חומש</th>
                 <th>משנה</th>
@@ -64,6 +66,12 @@
             </tr>
         </thead>
         <tr>
+            <td>
+                <input type="checkbox" *ngIf="dayDetails.limud" [(ngModel)]="dayDetails.alaha"/>
+            </td>
+            <td>
+                <input type="checkbox" *ngIf="dayDetails.limud" [(ngModel)]="dayDetails.lashonAra"/>
+            </td>
             <td>
                 <input type="checkbox" *ngIf="dayDetails.limud" [(ngModel)]="dayDetails.musar"/>
             </td>
@@ -75,6 +83,14 @@
             </td>
             <td>
                 <input type="checkbox" *ngIf="dayDetails.limud" [(ngModel)]="dayDetails.gmara"/>
+            </td>
+        </tr>
+    </table>
+    <table class="table table-fit">
+        <tr>
+            <th>גיטרה</th>
+            <td>
+                <input type="checkbox" [(ngModel)]="dayDetails.gitara"/>                
             </td>
         </tr>
     </table>
