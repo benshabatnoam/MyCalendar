@@ -30,12 +30,18 @@ var DayDetailsComponent = (function () {
                 _this.dayService.getMonthName(_this.month) + ' ' + _this.year;
             _this.dayService.getDayDetails(_this.date, _this.month, _this.year)
                 .then(function (response) {
-                _this.dayDetails = response.json();
-                if (!_this.dayDetails)
+                if (response.text()) {
+                    _this.dayDetails = response.json();
+                }
+                if (!_this.dayDetails) {
                     _this.dayDetails = new day_details_1.DayDetails(_this.date, _this.month, _this.year);
+                }
             })
                 .catch(function (error) {
-                console.log('error in init day details');
+                var message = 'Error in init day details';
+                if (!!error && !!error.message)
+                    message = message + ': ' + error.message;
+                console.error(message);
             });
         });
     };

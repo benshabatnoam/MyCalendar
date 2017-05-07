@@ -35,12 +35,18 @@ export class DayDetailsComponent implements OnInit {
             
             this.dayService.getDayDetails(this.date, this.month, this.year)
                 .then(response =>  {
-                    this.dayDetails = response.json() as DayDetails;
-                    if (!this.dayDetails)
+                    if (response.text()) {
+                        this.dayDetails = response.json() as DayDetails;
+                    }
+                    if (!this.dayDetails) {
                         this.dayDetails = new DayDetails(this.date, this.month, this.year);
+                    }
                 })
                 .catch(error => {
-                    console.log('error in init day details')
+                    var message = 'Error in init day details';
+                    if (!!error && !!error.message)
+                        message = message + ': ' + error.message;
+                    console.error(message)
                 });
         })
     }
