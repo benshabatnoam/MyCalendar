@@ -11,11 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var year_calendar_component_1 = require('./components/calendar/year/year-calendar.component');
-var month_component_1 = require('./components/month/month.component');
+var month_calendar_component_1 = require('./components/calendar/month/month-calendar.component');
 var day_details_component_1 = require('./components/day/day-details.component');
 var routs = [
     { path: ':year', component: year_calendar_component_1.YearCalendarComponent },
-    { path: ':year/:month', component: month_component_1.MonthComponent },
+    { path: ':year/:month', component: month_calendar_component_1.MonthCalendarComponent },
     { path: ':year/:month/:day', component: day_details_component_1.DayDetailsComponent }
 ];
 var AppRoutingModule = (function () {

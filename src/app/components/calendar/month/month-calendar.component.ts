@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { DayService } from '../../services/day.service';
+import { DayService } from '../../../services/day.service';
 
-import { EventsManager } from '../../managers/events.manager';
+import { EventsManager } from '../../../managers/events.manager';
 
-import { Day } from '../../models/day';
+import { Day } from '../../../models/day';
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'month.component.html',
-    styleUrls: ['month.component.css', '../../../styles.css']
+    templateUrl: 'month-calendar.component.html',
+    styleUrls: ['month-calendar.component.css', '../../../../styles.css']
 })
 
-export class MonthComponent implements OnInit {
+export class MonthCalendarComponent implements OnInit {
     weeks: any[];
     sundays: Date[];
     month: number;

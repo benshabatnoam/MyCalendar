@@ -11,7 +11,7 @@ import { AppComponent }  from './app.component';
 import { TopNavBarComponent } from './components/navBar/top-nav-bar.component';
 import { RightNavBarComponent } from './components/navBar/right-nav-bar.component';
 import { DayComponent }  from './components/day/day.component';
-import { MonthComponent }  from './components/month/month.component';
+import { MonthCalendarComponent }  from './components/calendar/month/month-calendar.component';
 import { YearCalendarComponent }  from './components/calendar/year/year-calendar.component';
 import { DayDetailsComponent } from './components/day/day-details.component';
 
@@ -30,7 +30,7 @@ import { NavigateManager } from './managers/navigate.manager';
     RightNavBarComponent,
     TopNavBarComponent,
     DayComponent,
-    MonthComponent,
+    MonthCalendarComponent,
     YearCalendarComponent,
     DayDetailsComponent
   ],

@@ -18,7 +18,7 @@ var app_component_1 = require('./app.component');
 var top_nav_bar_component_1 = require('./components/navBar/top-nav-bar.component');
 var right_nav_bar_component_1 = require('./components/navBar/right-nav-bar.component');
 var day_component_1 = require('./components/day/day.component');
-var month_component_1 = require('./components/month/month.component');
+var month_calendar_component_1 = require('./components/calendar/month/month-calendar.component');
 var year_calendar_component_1 = require('./components/calendar/year/year-calendar.component');
 var day_details_component_1 = require('./components/day/day-details.component');
 var events_manager_1 = require('./managers/events.manager');
@@ -39,7 +39,7 @@ var AppModule = (function () {
                 right_nav_bar_component_1.RightNavBarComponent,
                 top_nav_bar_component_1.TopNavBarComponent,
                 day_component_1.DayComponent,
-                month_component_1.MonthComponent,
+                month_calendar_component_1.MonthCalendarComponent,
                 year_calendar_component_1.YearCalendarComponent,
                 day_details_component_1.DayDetailsComponent
             ],

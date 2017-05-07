@@ -10,28 +10,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var day_service_1 = require('../../services/day.service');
-var events_manager_1 = require('../../managers/events.manager');
-var day_1 = require('../../models/day');
-var MonthComponent = (function () {
-    function MonthComponent(aRoute, dayService, eventsManager) {
+var day_service_1 = require('../../../services/day.service');
+var events_manager_1 = require('../../../managers/events.manager');
+var day_1 = require('../../../models/day');
+var MonthCalendarComponent = (function () {
+    function MonthCalendarComponent(aRoute, dayService, eventsManager) {
         this.aRoute = aRoute;
         this.dayService = dayService;
         this.eventsManager = eventsManager;
     }
-    MonthComponent.prototype.ngOnInit = function () {
+    MonthCalendarComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.aRoute.params.subscribe(function (params) {
             _this.initMonth(params['year'], params['month']);
         });
     };
-    MonthComponent.prototype.initMonth = function (year, month) {
+    MonthCalendarComponent.prototype.initMonth = function (year, month) {
         this.year = year;
         this.month = month;
         this.monthName = this.dayService.getMonthName(this.month);
         this.initWeeks();
     };
-    MonthComponent.prototype.initWeeks = function () {
+    MonthCalendarComponent.prototype.initWeeks = function () {
         this.weeks = [];
         var week = [];
         var firstMonthDate = new Date(this.year, this.month, 1);
@@ -49,17 +49,17 @@ var MonthComponent = (function () {
             date = new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1);
         }
     };
-    MonthComponent.prototype.getPrevSunday = function () {
+    MonthCalendarComponent.prototype.getPrevSunday = function () {
         var date = new Date(this.year, this.month, 0);
         while (!this.isSunday(date)) {
             date = new Date(this.year, date.getMonth(), date.getDate() - 1);
         }
         return date;
     };
-    MonthComponent.prototype.isSunday = function (date) {
+    MonthCalendarComponent.prototype.isSunday = function (date) {
         return date.getDay() == 0;
     };
-    MonthComponent.prototype.getWeekDates = function (sunday) {
+    MonthCalendarComponent.prototype.getWeekDates = function (sunday) {
         var days = [];
         days.push(new day_1.Day(sunday, this.month));
         var date = sunday;
@@ -69,21 +69,21 @@ var MonthComponent = (function () {
         }
         return days;
     };
-    MonthComponent.prototype.isSaturday = function (date) {
+    MonthCalendarComponent.prototype.isSaturday = function (date) {
         return date.getDay() == 6;
     };
-    MonthComponent.prototype.goToDate = function (day) {
+    MonthCalendarComponent.prototype.goToDate = function (day) {
         this.eventsManager.goToDate(new Date(day.year, day.month, day.date));
     };
-    MonthComponent = __decorate([
+    MonthCalendarComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            templateUrl: 'month.component.html',
-            styleUrls: ['month.component.css', '../../../styles.css']
+            templateUrl: 'month-calendar.component.html',
+            styleUrls: ['month-calendar.component.css', '../../../../styles.css']
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, day_service_1.DayService, events_manager_1.EventsManager])
-    ], MonthComponent);
-    return MonthComponent;
+    ], MonthCalendarComponent);
+    return MonthCalendarComponent;
 }());
-exports.MonthComponent = MonthComponent;
-//# sourceMappingURL=month.component.js.map
+exports.MonthCalendarComponent = MonthCalendarComponent;
+//# sourceMappingURL=month-calendar.component.js.map
