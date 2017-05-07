@@ -1,0 +1,32 @@
+table.calendar {
+    width: 99%;
+    height: 95%;
+}
+table.calendar th {
+    border: none;
+    text-align: center;
+    height: 1%;
+}
+table.calendar td {
+    border: none;
+    position:relative;
+    width: 10%;
+}
+table.calendar div {
+    border-style: solid;
+    text-align: center;
+    position:absolute;
+    top:0px; left:0px; right:0px; bottom:0px;
+    margin: 3px;
+    cursor: pointer;
+}
+table.calendar span {
+    font-size: 24pt;
+    font-weight: 600;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+}

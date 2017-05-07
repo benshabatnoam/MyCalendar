@@ -10,7 +10,7 @@ import { Day } from '../../models/day';
 @Component({
     moduleId: module.id,
     templateUrl: 'month.component.html',
-    styleUrls: ['month.component.css']
+    styleUrls: ['month.component.css', '../../../styles.css']
 })
 
 export class MonthComponent implements OnInit {

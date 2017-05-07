@@ -12,27 +12,37 @@ import { EventsManager } from '../../managers/events.manager';
 
 export class TopNavBarComponent implements OnInit {
     month: number;
-    monthName: string;
     year: number;
+    description: string;
 
     constructor(private dayService: DayService,
         private eventsManager: EventsManager) { }
 
     ngOnInit(): void {
         this.eventsManager.goToDateEmitter.subscribe((date) => {
-            if (date) {
-                this.year = date.getFullYear();
-                this.month = date.getMonth();
-                this.monthName = this.dayService.getMonthName(this.month);
-            }
+            this.init(date);
         });
         this.eventsManager.goToMonthEmitter.subscribe((date) => {
-            if (date) {
-                this.year = date.getFullYear();
-                this.month = date.getMonth();
-                this.monthName = this.dayService.getMonthName(this.month);
-            }
+            this.init(date);
         });
+        this.eventsManager.goToYearEmitter.subscribe((year) => {
+            this.initYear(year);
+        })
+    }
+
+    init(date: Date) {
+        if (date) {
+            this.year = date.getFullYear();
+            this.month = date.getMonth();
+            this.description = this.dayService.getMonthName(this.month) + ' ' + this.year;
+        }
+    }
+
+    initYear(year: number) {
+        if (year) {
+            this.year = year;
+            this.description = year.toString();
+        }
     }
     
     goToPrevMonth() {

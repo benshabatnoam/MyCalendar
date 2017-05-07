@@ -10,22 +10,8 @@
     <div class="collapse navbar-collapse"  style="float:right;margin-right:120px">
       <ul class="nav navbar-nav">
         <li><a href="" (click)="goToNextMonth(); false">></a></li>
-        <li style="width: 150px;text-align: center"><a href="" (click)="goToYear(); false">{{monthName}} {{year}}</a></li>
+        <li style="width: 150px;text-align: center"><a href="" (click)="goToYear(); false">{{description}}</a></li>
         <li><a href="" (click)="goToPrevMonth(); false"><</a></li>
       </ul>
     </div>
-</div><!--/.navbar -->
-
-<!--<table>
-    <tr>
-        <td>
-            <button (click)="goToPrevMonth();"><</button>
-        </td>
-        <td style="width: 200px;text-align: center">
-            <h2 [routerLink]="['', year]">{{monthName}} {{year}}</h2>
-        </td>
-        <td>
-            <button (click)="goToNextMonth();">></button>
-        </td>
-    </tr>
-</table>-->
+</div>

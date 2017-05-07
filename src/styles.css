@@ -7,3 +7,6 @@ body,html {
 body {
   padding-top: 50px;
 }
+.borderless td, .borderless th {
+    border: none;
+}

@@ -9,17 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var YearComponent = (function () {
-    function YearComponent() {
+var YearCalendarComponent = (function () {
+    function YearCalendarComponent() {
     }
-    YearComponent = __decorate([
+    YearCalendarComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            template: 'this is a year'
+            templateUrl: 'year-calendar.component.html',
+            styleUrls: ['year-calendar.component.css', '../../../../styles.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], YearComponent);
-    return YearComponent;
+    ], YearCalendarComponent);
+    return YearCalendarComponent;
 }());
-exports.YearComponent = YearComponent;
-//# sourceMappingURL=year.component.js.map
+exports.YearCalendarComponent = YearCalendarComponent;
+//# sourceMappingURL=year-calendar.component.js.map

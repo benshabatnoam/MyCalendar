@@ -12,7 +12,7 @@ import { TopNavBarComponent } from './components/navBar/top-nav-bar.component';
 import { RightNavBarComponent } from './components/navBar/right-nav-bar.component';
 import { DayComponent }  from './components/day/day.component';
 import { MonthComponent }  from './components/month/month.component';
-import { YearComponent }  from './components/year/year.component';
+import { YearCalendarComponent }  from './components/calendar/year/year-calendar.component';
 import { DayDetailsComponent } from './components/day/day-details.component';
 
 import { EventsManager } from './managers/events.manager';
@@ -31,7 +31,7 @@ import { NavigateManager } from './managers/navigate.manager';
     TopNavBarComponent,
     DayComponent,
     MonthComponent,
-    YearComponent,
+    YearCalendarComponent,
     DayDetailsComponent
   ],
   providers: [

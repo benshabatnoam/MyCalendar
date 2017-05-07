@@ -79,7 +79,7 @@ var MonthComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             templateUrl: 'month.component.html',
-            styleUrls: ['month.component.css']
+            styleUrls: ['month.component.css', '../../../styles.css']
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, day_service_1.DayService, events_manager_1.EventsManager])
     ], MonthComponent);

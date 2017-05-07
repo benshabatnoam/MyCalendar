@@ -19,19 +19,27 @@ var TopNavBarComponent = (function () {
     TopNavBarComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.eventsManager.goToDateEmitter.subscribe(function (date) {
-            if (date) {
-                _this.year = date.getFullYear();
-                _this.month = date.getMonth();
-                _this.monthName = _this.dayService.getMonthName(_this.month);
-            }
+            _this.init(date);
         });
         this.eventsManager.goToMonthEmitter.subscribe(function (date) {
-            if (date) {
-                _this.year = date.getFullYear();
-                _this.month = date.getMonth();
-                _this.monthName = _this.dayService.getMonthName(_this.month);
-            }
+            _this.init(date);
         });
+        this.eventsManager.goToYearEmitter.subscribe(function (year) {
+            _this.initYear(year);
+        });
+    };
+    TopNavBarComponent.prototype.init = function (date) {
+        if (date) {
+            this.year = date.getFullYear();
+            this.month = date.getMonth();
+            this.description = this.dayService.getMonthName(this.month) + ' ' + this.year;
+        }
+    };
+    TopNavBarComponent.prototype.initYear = function (year) {
+        if (year) {
+            this.year = year;
+            this.description = year.toString();
+        }
     };
     TopNavBarComponent.prototype.goToPrevMonth = function () {
         var year = this.year;
