@@ -8,9 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var events_manager_1 = require('./managers/events.manager');
-var navigate_manager_1 = require('./managers/navigate.manager');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var events_manager_1 = require("./managers/events.manager");
+var navigate_manager_1 = require("./managers/navigate.manager");
 var AppComponent = (function () {
     function AppComponent(eventsManager, navigateManager) {
         this.eventsManager = eventsManager;
@@ -24,16 +25,17 @@ var AppComponent = (function () {
         var month = today.getMonth();
         this.eventsManager.goToMonth(today);
     };
-    AppComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: 'app.component.html',
-            styleUrls: ['app.component.css']
-        }), 
-        __metadata('design:paramtypes', [events_manager_1.EventsManager, navigate_manager_1.NavigateManager])
-    ], AppComponent);
     return AppComponent;
 }());
+AppComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'my-app',
+        templateUrl: 'app.component.html',
+        styleUrls: ['app.component.css']
+    }),
+    __metadata("design:paramtypes", [events_manager_1.EventsManager,
+        navigate_manager_1.NavigateManager])
+], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

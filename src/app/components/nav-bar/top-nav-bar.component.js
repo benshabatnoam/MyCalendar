@@ -8,9 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var day_service_1 = require('../../services/day.service');
-var events_manager_1 = require('../../managers/events.manager');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var day_service_1 = require("../../services/day.service");
+var events_manager_1 = require("../../managers/events.manager");
 var TopNavBarComponent = (function () {
     function TopNavBarComponent(dayService, eventsManager) {
         this.dayService = dayService;
@@ -83,15 +84,16 @@ var TopNavBarComponent = (function () {
     TopNavBarComponent.prototype.goToYear = function () {
         this.eventsManager.goToYear(this.year);
     };
-    TopNavBarComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'top-nav-bar',
-            templateUrl: 'top-nav-bar.component.html'
-        }), 
-        __metadata('design:paramtypes', [day_service_1.DayService, events_manager_1.EventsManager])
-    ], TopNavBarComponent);
     return TopNavBarComponent;
 }());
+TopNavBarComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'top-nav-bar',
+        templateUrl: 'top-nav-bar.component.html'
+    }),
+    __metadata("design:paramtypes", [day_service_1.DayService,
+        events_manager_1.EventsManager])
+], TopNavBarComponent);
 exports.TopNavBarComponent = TopNavBarComponent;
 //# sourceMappingURL=top-nav-bar.component.js.map

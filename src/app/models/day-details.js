@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var DayDetails = (function () {
     function DayDetails(date, month, year) {
         this.kitza = false;

@@ -8,10 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-require('rxjs/add/operator/map');
-require('rxjs/add/operator/toPromise');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
+require("rxjs/add/operator/map");
+require("rxjs/add/operator/toPromise");
 var DayService = (function () {
     function DayService(http) {
         this.http = http;
@@ -38,11 +39,11 @@ var DayService = (function () {
         return this.http.post(this.saveDayDetailsURL, { dayDetails: json }, this.options)
             .toPromise();
     };
-    DayService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], DayService);
     return DayService;
 }());
+DayService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], DayService);
 exports.DayService = DayService;
 //# sourceMappingURL=day.service.js.map

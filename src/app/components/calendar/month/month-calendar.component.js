@@ -8,11 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var day_service_1 = require('../../../services/day.service');
-var events_manager_1 = require('../../../managers/events.manager');
-var day_1 = require('../../../models/day');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var day_service_1 = require("../../../services/day.service");
+var events_manager_1 = require("../../../managers/events.manager");
+var day_1 = require("../../../models/day");
 var MonthCalendarComponent = (function () {
     function MonthCalendarComponent(aRoute, dayService, eventsManager) {
         this.aRoute = aRoute;
@@ -75,15 +76,15 @@ var MonthCalendarComponent = (function () {
     MonthCalendarComponent.prototype.goToDate = function (day) {
         this.eventsManager.goToDate(new Date(day.year, day.month, day.date));
     };
-    MonthCalendarComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            templateUrl: 'month-calendar.component.html',
-            styleUrls: ['../calendar.css']
-        }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute, day_service_1.DayService, events_manager_1.EventsManager])
-    ], MonthCalendarComponent);
     return MonthCalendarComponent;
 }());
+MonthCalendarComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        templateUrl: 'month-calendar.component.html',
+        styleUrls: ['../calendar.css']
+    }),
+    __metadata("design:paramtypes", [router_1.ActivatedRoute, day_service_1.DayService, events_manager_1.EventsManager])
+], MonthCalendarComponent);
 exports.MonthCalendarComponent = MonthCalendarComponent;
 //# sourceMappingURL=month-calendar.component.js.map

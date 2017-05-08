@@ -8,9 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var day_service_1 = require('../../services/day.service');
-var events_manager_1 = require('../../managers/events.manager');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var day_service_1 = require("../../services/day.service");
+var events_manager_1 = require("../../managers/events.manager");
 var RightNavBarComponent = (function () {
     function RightNavBarComponent(dayService, eventsManager) {
         this.dayService = dayService;
@@ -36,16 +37,16 @@ var RightNavBarComponent = (function () {
     RightNavBarComponent.prototype.goToYear = function () {
         this.eventsManager.goToYear(this.year);
     };
-    RightNavBarComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'right-nav-bar',
-            templateUrl: 'right-nav-bar.component.html',
-            styleUrls: ['right-nav-bar.component.css']
-        }), 
-        __metadata('design:paramtypes', [day_service_1.DayService, events_manager_1.EventsManager])
-    ], RightNavBarComponent);
     return RightNavBarComponent;
 }());
+RightNavBarComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'right-nav-bar',
+        templateUrl: 'right-nav-bar.component.html',
+        styleUrls: ['right-nav-bar.component.css']
+    }),
+    __metadata("design:paramtypes", [day_service_1.DayService, events_manager_1.EventsManager])
+], RightNavBarComponent);
 exports.RightNavBarComponent = RightNavBarComponent;
 //# sourceMappingURL=right-nav-bar.component.js.map

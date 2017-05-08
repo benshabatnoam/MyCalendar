@@ -8,11 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var day_service_1 = require('../../../services/day.service');
-var events_manager_1 = require('../../../managers/events.manager');
-var day_details_1 = require('../../../models/day-details');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var day_service_1 = require("../../../services/day.service");
+var events_manager_1 = require("../../../managers/events.manager");
+var day_details_1 = require("../../../models/day-details");
 var DayDetailsComponent = (function () {
     function DayDetailsComponent(aRoute, eventsManager, dayService) {
         this.aRoute = aRoute;
@@ -58,15 +59,15 @@ var DayDetailsComponent = (function () {
     DayDetailsComponent.prototype.cancel = function () {
         this.eventsManager.goToMonth(this.day);
     };
-    DayDetailsComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            templateUrl: 'day-details.component.html',
-            styleUrls: ['day-details.component.css']
-        }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute, events_manager_1.EventsManager, day_service_1.DayService])
-    ], DayDetailsComponent);
     return DayDetailsComponent;
 }());
+DayDetailsComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        templateUrl: 'day-details.component.html',
+        styleUrls: ['day-details.component.css']
+    }),
+    __metadata("design:paramtypes", [router_1.ActivatedRoute, events_manager_1.EventsManager, day_service_1.DayService])
+], DayDetailsComponent);
 exports.DayDetailsComponent = DayDetailsComponent;
 //# sourceMappingURL=day-details.component.js.map
