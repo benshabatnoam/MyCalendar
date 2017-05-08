@@ -10,9 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var day_service_1 = require('../../services/day.service');
-var events_manager_1 = require('../../managers/events.manager');
-var day_details_1 = require('../../models/day-details');
+var day_service_1 = require('../../../services/day.service');
+var events_manager_1 = require('../../../managers/events.manager');
+var day_details_1 = require('../../../models/day-details');
 var DayDetailsComponent = (function () {
     function DayDetailsComponent(aRoute, eventsManager, dayService) {
         this.aRoute = aRoute;

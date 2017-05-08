@@ -12,7 +12,7 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var year_calendar_component_1 = require('./components/calendar/year/year-calendar.component');
 var month_calendar_component_1 = require('./components/calendar/month/month-calendar.component');
-var day_details_component_1 = require('./components/day/day-details.component');
+var day_details_component_1 = require('./components/forms/day-details/day-details.component');
 var routs = [
     { path: ':year', component: year_calendar_component_1.YearCalendarComponent },
     { path: ':year/:month', component: month_calendar_component_1.MonthCalendarComponent },

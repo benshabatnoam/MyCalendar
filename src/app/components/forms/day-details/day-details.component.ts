@@ -1,11 +1,11 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { DayService } from '../../services/day.service';
+import { DayService } from '../../../services/day.service';
 
-import { EventsManager } from '../../managers/events.manager';
+import { EventsManager } from '../../../managers/events.manager';
 
-import { DayDetails } from '../../models/day-details';
+import { DayDetails } from '../../../models/day-details';
 
 @Component({
     moduleId: module.id,

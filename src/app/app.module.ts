@@ -8,12 +8,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { DayService } from './services/day.service';
 
 import { AppComponent }  from './app.component';
-import { TopNavBarComponent } from './components/navBar/top-nav-bar.component';
-import { RightNavBarComponent } from './components/navBar/right-nav-bar.component';
-import { DayComponent }  from './components/day/day.component';
+import { TopNavBarComponent } from './components/nav-bar/top-nav-bar.component';
+import { RightNavBarComponent } from './components/nav-bar/right-nav-bar.component';
 import { MonthCalendarComponent }  from './components/calendar/month/month-calendar.component';
 import { YearCalendarComponent }  from './components/calendar/year/year-calendar.component';
-import { DayDetailsComponent } from './components/day/day-details.component';
+import { DayDetailsComponent } from './components/forms/day-details/day-details.component';
 
 import { EventsManager } from './managers/events.manager';
 import { NavigateManager } from './managers/navigate.manager';
@@ -29,7 +28,6 @@ import { NavigateManager } from './managers/navigate.manager';
     AppComponent,
     RightNavBarComponent,
     TopNavBarComponent,
-    DayComponent,
     MonthCalendarComponent,
     YearCalendarComponent,
     DayDetailsComponent

@@ -16,7 +16,7 @@ var YearCalendarComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             templateUrl: 'year-calendar.component.html',
-            styleUrls: ['year-calendar.component.css', '../../../../styles.css']
+            styleUrls: ['../calendar.css']
         }), 
         __metadata('design:paramtypes', [])
     ], YearCalendarComponent);

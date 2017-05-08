@@ -1,4 +1,4 @@
-<table class="table borderless" style="width:99%;height:95%;">
+<table class="table calendar">
     <tr>
         <th>ראשון</th>
         <th>שני</th>
@@ -10,7 +10,11 @@
     </tr>
     <tr *ngFor="let week of weeks">
         <td *ngFor="let day of week">
-            <day [day]="day" [month]="month" (click)="goToDate(day);"></day>
+            <div [ngStyle]="{'background': day.isToday ? 'green' : null }" (click)="goToDate(day);">
+                <span [ngStyle]="{'opacity': day.inMonth ? '1' : '0.4'}">
+                    {{day.date}}
+                </span>
+            </div>
         </td>
     </tr>
 </table>

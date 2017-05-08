@@ -15,12 +15,11 @@ var http_1 = require('@angular/http');
 var app_routing_module_1 = require('./app-routing.module');
 var day_service_1 = require('./services/day.service');
 var app_component_1 = require('./app.component');
-var top_nav_bar_component_1 = require('./components/navBar/top-nav-bar.component');
-var right_nav_bar_component_1 = require('./components/navBar/right-nav-bar.component');
-var day_component_1 = require('./components/day/day.component');
+var top_nav_bar_component_1 = require('./components/nav-bar/top-nav-bar.component');
+var right_nav_bar_component_1 = require('./components/nav-bar/right-nav-bar.component');
 var month_calendar_component_1 = require('./components/calendar/month/month-calendar.component');
 var year_calendar_component_1 = require('./components/calendar/year/year-calendar.component');
-var day_details_component_1 = require('./components/day/day-details.component');
+var day_details_component_1 = require('./components/forms/day-details/day-details.component');
 var events_manager_1 = require('./managers/events.manager');
 var navigate_manager_1 = require('./managers/navigate.manager');
 var AppModule = (function () {
@@ -38,7 +37,6 @@ var AppModule = (function () {
                 app_component_1.AppComponent,
                 right_nav_bar_component_1.RightNavBarComponent,
                 top_nav_bar_component_1.TopNavBarComponent,
-                day_component_1.DayComponent,
                 month_calendar_component_1.MonthCalendarComponent,
                 year_calendar_component_1.YearCalendarComponent,
                 day_details_component_1.DayDetailsComponent
