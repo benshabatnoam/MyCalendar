@@ -38,10 +38,17 @@ var TopNavBarComponent = (function () {
     TopNavBarComponent.prototype.initYear = function (year) {
         if (year) {
             this.year = year;
+            this.month = null;
             this.description = year.toString();
         }
     };
-    TopNavBarComponent.prototype.goToPrevMonth = function () {
+    TopNavBarComponent.prototype.prev = function () {
+        if (this.month || this.month == 0)
+            this.prevMonth();
+        else
+            this.prevYear();
+    };
+    TopNavBarComponent.prototype.prevMonth = function () {
         var year = this.year;
         var month = this.month;
         month--;
@@ -51,7 +58,16 @@ var TopNavBarComponent = (function () {
         }
         this.eventsManager.goToMonth(new Date(year, month, 1));
     };
-    TopNavBarComponent.prototype.goToNextMonth = function () {
+    TopNavBarComponent.prototype.prevYear = function () {
+        this.eventsManager.goToYear(this.year - 1);
+    };
+    TopNavBarComponent.prototype.next = function () {
+        if (this.month || this.month == 0)
+            this.nextMonth();
+        else
+            this.nextYear();
+    };
+    TopNavBarComponent.prototype.nextMonth = function () {
         var year = this.year;
         var month = this.month;
         month++;
@@ -60,6 +76,9 @@ var TopNavBarComponent = (function () {
             month = 0;
         }
         this.eventsManager.goToMonth(new Date(year, month, 1));
+    };
+    TopNavBarComponent.prototype.nextYear = function () {
+        this.eventsManager.goToYear(this.year + 1);
     };
     TopNavBarComponent.prototype.goToYear = function () {
         this.eventsManager.goToYear(this.year);

@@ -41,11 +41,19 @@ export class TopNavBarComponent implements OnInit {
     initYear(year: number) {
         if (year) {
             this.year = year;
+            this.month = null;
             this.description = year.toString();
         }
     }
+
+    prev() {
+        if (this.month || this.month == 0)
+            this.prevMonth();
+        else
+            this.prevYear();
+    }
     
-    goToPrevMonth() {
+    prevMonth() {
         var year = this.year;
         var month = this.month;
         month--;
@@ -56,7 +64,18 @@ export class TopNavBarComponent implements OnInit {
         this.eventsManager.goToMonth(new Date(year, month, 1));
     }
 
-    goToNextMonth() {
+    prevYear() {
+        this.eventsManager.goToYear(this.year - 1)
+    }
+
+    next() {
+        if (this.month || this.month == 0)
+            this.nextMonth()
+        else
+            this.nextYear();
+    }
+
+    nextMonth() {
         var year = this.year;
         var month = this.month;
         month++;
@@ -65,6 +84,10 @@ export class TopNavBarComponent implements OnInit {
             month = 0;
         }
         this.eventsManager.goToMonth(new Date(year, month, 1));
+    }
+
+    nextYear() {
+        this.eventsManager.goToYear(this.year + 1)
     }
 
     goToYear() {

@@ -10,7 +10,7 @@ import { DayDetails } from '../models/day-details';
 
 @Injectable()
 export class DayService {
-    months = ["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"]
+    months = ["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"];
     days = [ 'ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
     
     serverURL = 'http://localhost/MyCalendarServer/';
@@ -20,9 +20,7 @@ export class DayService {
     headers = new Headers({ 'Content-Type': 'application/json' });
     options = new RequestOptions({ headers: this.headers });
 
-    constructor (private http: Http) {
-        
-    }
+    constructor (private http: Http) { }
 
     getDayName(date: Date) {
         return this.days[date.getDay()];
