@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { trigger, transition, animate, style, keyframes } from '@angular/animations';
 
 import { Month } from '../../../models/month';
 
