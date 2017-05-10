@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var animations_1 = require("@angular/animations");
 var day_service_1 = require("../../../services/day.service");
 var events_manager_1 = require("../../../managers/events.manager");
 var day_1 = require("../../../models/day");
@@ -82,7 +83,17 @@ MonthCalendarComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         templateUrl: 'month-calendar.component.html',
-        styleUrls: ['../calendar.css']
+        styleUrls: ['../calendar.css'],
+        animations: [
+            animations_1.trigger('fadeIn', [
+                animations_1.transition(':enter', [
+                    animations_1.animate('0.4s ease-in', animations_1.keyframes([
+                        animations_1.style({ opacity: 0, transform: 'scale(0.7)', offset: 0 }),
+                        animations_1.style({ opacity: 1, transform: 'scale(1)', offset: 1 })
+                    ]))
+                ])
+            ])
+        ]
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute, day_service_1.DayService, events_manager_1.EventsManager])
 ], MonthCalendarComponent);

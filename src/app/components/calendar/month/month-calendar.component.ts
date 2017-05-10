@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { trigger, transition, animate, style, keyframes } from '@angular/animations';
 
 import { DayService } from '../../../services/day.service';
 
@@ -10,7 +11,17 @@ import { Day } from '../../../models/day';
 @Component({
     moduleId: module.id,
     templateUrl: 'month-calendar.component.html',
-    styleUrls: ['../calendar.css']
+    styleUrls: ['../calendar.css'],
+    animations: [
+        trigger('fadeIn', [
+            transition(':enter', [ 
+                animate('0.4s ease-in', keyframes([
+                    style({opacity: 0, transform: 'scale(0.7)', offset: 0}),
+                    style({opacity: 1, transform: 'scale(1)', offset: 1})
+                ]))
+            ])
+        ])
+    ]
 })
 
 export class MonthCalendarComponent implements OnInit {
