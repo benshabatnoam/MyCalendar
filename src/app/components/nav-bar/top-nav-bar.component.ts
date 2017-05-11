@@ -93,8 +93,4 @@ export class TopNavBarComponent implements OnInit {
     goToYear() {
         this.eventsManager.goToYear(this.year);
     }
-
-    login() {
-        alert('login clicked');
-    }
 }

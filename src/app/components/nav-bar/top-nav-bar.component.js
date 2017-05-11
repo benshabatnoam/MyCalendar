@@ -84,9 +84,6 @@ var TopNavBarComponent = (function () {
     TopNavBarComponent.prototype.goToYear = function () {
         this.eventsManager.goToYear(this.year);
     };
-    TopNavBarComponent.prototype.login = function () {
-        alert('login clicked');
-    };
     return TopNavBarComponent;
 }());
 TopNavBarComponent = __decorate([

@@ -4,6 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { LoginModule } from './modules/login/login.module';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { DayService } from './services/day.service';
@@ -22,9 +24,10 @@ import { NavigateManager } from './managers/navigate.manager';
   imports:      [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    LoginModule,
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,
