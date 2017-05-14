@@ -12,8 +12,9 @@ var year_calendar_component_1 = require("./components/calendar/year/year-calenda
 var month_calendar_component_1 = require("./components/calendar/month/month-calendar.component");
 var day_details_component_1 = require("./components/forms/day-details/day-details.component");
 var edit_day_details_component_1 = require("./components/forms/edit-day-details/edit-day-details.component");
+var auth_guard_service_1 = require("./services/auth-guard.service");
 var routs = [
-    { path: 'edit', component: edit_day_details_component_1.EditDayDetailsComponent },
+    { path: 'edit', component: edit_day_details_component_1.EditDayDetailsComponent, canActivate: [auth_guard_service_1.AuthGuard] },
     { path: ':year', component: year_calendar_component_1.YearCalendarComponent },
     { path: ':year/:month', component: month_calendar_component_1.MonthCalendarComponent },
     { path: ':year/:month/:day', component: day_details_component_1.DayDetailsComponent }
@@ -35,5 +36,8 @@ exports.AppComponents = [
     month_calendar_component_1.MonthCalendarComponent,
     day_details_component_1.DayDetailsComponent,
     edit_day_details_component_1.EditDayDetailsComponent
+];
+exports.AppGuards = [
+    auth_guard_service_1.AuthGuard
 ];
 //# sourceMappingURL=app-routing.module.js.map

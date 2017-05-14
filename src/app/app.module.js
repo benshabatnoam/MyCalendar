@@ -14,6 +14,7 @@ var http_1 = require("@angular/http");
 var login_module_1 = require("./modules/login/login.module");
 var app_routing_module_1 = require("./app-routing.module");
 var day_service_1 = require("./services/day.service");
+var auth_service_1 = require("./services/auth.service");
 var app_component_1 = require("./app.component");
 var top_nav_bar_component_1 = require("./components/nav-bar/top-nav-bar.component");
 var right_nav_bar_component_1 = require("./components/nav-bar/right-nav-bar.component");
@@ -41,6 +42,8 @@ AppModule = __decorate([
             app_routing_module_1.AppComponents
         ],
         providers: [
+            app_routing_module_1.AppGuards,
+            auth_service_1.AuthService,
             day_service_1.DayService,
             navigate_manager_1.NavigateManager,
             events_manager_1.EventsManager

@@ -1,1 +1,1 @@
-<button (click)="login();">{{btnDesc}}</button>
+<button (click)="authService.isLoggedIn ? logout() : login();">{{btnDesc}}</button>

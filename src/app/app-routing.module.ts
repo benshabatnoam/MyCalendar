@@ -6,8 +6,10 @@ import { MonthCalendarComponent } from './components/calendar/month/month-calend
 import { DayDetailsComponent } from './components/forms/day-details/day-details.component';
 import { EditDayDetailsComponent } from './components/forms/edit-day-details/edit-day-details.component';
 
+import { AuthGuard } from './services/auth-guard.service';
+
 const routs: Routes = [
-    { path: 'edit', component: EditDayDetailsComponent },
+    { path: 'edit', component: EditDayDetailsComponent, canActivate: [ AuthGuard ] },
     { path: ':year', component: YearCalendarComponent },
     { path: ':year/:month', component: MonthCalendarComponent },
     { path: ':year/:month/:day', component: DayDetailsComponent }
@@ -27,4 +29,8 @@ export const AppComponents = [
     MonthCalendarComponent,
     DayDetailsComponent,
     EditDayDetailsComponent
+]
+
+export const AppGuards = [
+    AuthGuard
 ]

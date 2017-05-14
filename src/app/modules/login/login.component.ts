@@ -1,16 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { AuthService } from '../../services/auth.service';
 
 @Component({
     moduleId: module.id,
     templateUrl: 'login.component.html'
 })
 
-export class LoginComponent {
-    isLoggedIn: boolean;
-    btnDesc: string = 'התחבר';
+export class LoginComponent implements OnInit {
+    btnDesc: string;
+    disconnect: string = 'התנתק';
+    connect: string = 'התחבר';
 
+    constructor(private authService: AuthService) { }
+
+    ngOnInit(): void {
+        this.btnDesc = this.authService.isLoggedIn ? this.disconnect : this.connect;
+    }
+    
     login() {
-        this.isLoggedIn = !this.isLoggedIn;
-        this.btnDesc = this.isLoggedIn ? 'התנתק' : 'התחבר';
+        this.authService.login();
+        this.btnDesc = this.disconnect;
+    }
+
+    logout() {
+        this.authService.logout();
+        this.btnDesc = this.connect;
     }
 }
