@@ -11,7 +11,9 @@ var router_1 = require("@angular/router");
 var year_calendar_component_1 = require("./components/calendar/year/year-calendar.component");
 var month_calendar_component_1 = require("./components/calendar/month/month-calendar.component");
 var day_details_component_1 = require("./components/forms/day-details/day-details.component");
+var edit_day_details_component_1 = require("./components/forms/edit-day-details/edit-day-details.component");
 var routs = [
+    { path: 'edit', component: edit_day_details_component_1.EditDayDetailsComponent },
     { path: ':year', component: year_calendar_component_1.YearCalendarComponent },
     { path: ':year/:month', component: month_calendar_component_1.MonthCalendarComponent },
     { path: ':year/:month/:day', component: day_details_component_1.DayDetailsComponent }
@@ -28,4 +30,10 @@ AppRoutingModule = __decorate([
     })
 ], AppRoutingModule);
 exports.AppRoutingModule = AppRoutingModule;
+exports.AppComponents = [
+    year_calendar_component_1.YearCalendarComponent,
+    month_calendar_component_1.MonthCalendarComponent,
+    day_details_component_1.DayDetailsComponent,
+    edit_day_details_component_1.EditDayDetailsComponent
+];
 //# sourceMappingURL=app-routing.module.js.map

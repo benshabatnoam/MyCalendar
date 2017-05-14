@@ -6,16 +6,13 @@ import { HttpModule } from '@angular/http';
 
 import { LoginModule } from './modules/login/login.module';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, AppComponents } from './app-routing.module';
 
 import { DayService } from './services/day.service';
 
 import { AppComponent }  from './app.component';
 import { TopNavBarComponent } from './components/nav-bar/top-nav-bar.component';
 import { RightNavBarComponent } from './components/nav-bar/right-nav-bar.component';
-import { MonthCalendarComponent }  from './components/calendar/month/month-calendar.component';
-import { YearCalendarComponent }  from './components/calendar/year/year-calendar.component';
-import { DayDetailsComponent } from './components/forms/day-details/day-details.component';
 
 import { EventsManager } from './managers/events.manager';
 import { NavigateManager } from './managers/navigate.manager';
@@ -33,9 +30,7 @@ import { NavigateManager } from './managers/navigate.manager';
     AppComponent,
     RightNavBarComponent,
     TopNavBarComponent,
-    MonthCalendarComponent,
-    YearCalendarComponent,
-    DayDetailsComponent
+    AppComponents
   ],
   providers: [
     DayService,
