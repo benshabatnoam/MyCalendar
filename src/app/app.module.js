@@ -11,6 +11,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var animations_1 = require("@angular/platform-browser/animations");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
+var login_module_1 = require("./modules/login/login.module");
 var app_routing_module_1 = require("./app-routing.module");
 var day_service_1 = require("./services/day.service");
 var app_component_1 = require("./app.component");
@@ -31,9 +32,10 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             animations_1.BrowserAnimationsModule,
-            app_routing_module_1.AppRoutingModule,
             forms_1.FormsModule,
-            http_1.HttpModule
+            http_1.HttpModule,
+            login_module_1.LoginModule,
+            app_routing_module_1.AppRoutingModule
         ],
         declarations: [
             app_component_1.AppComponent,
