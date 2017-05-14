@@ -10,19 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var taldor_permissions_service_1 = require("./taldor-permissions.service");
 require("rxjs/add/Operator/catch");
 var TaldorPermissionsGuard = (function () {
-    function TaldorPermissionsGuard(permissionsService) {
+    function TaldorPermissionsGuard(permissionsService, router) {
         this.permissionsService = permissionsService;
+        this.router = router;
     }
     TaldorPermissionsGuard.prototype.canActivate = function (route, state) {
+        var _this = this;
         return this.permissionsService.isPermitted(state.url)
             .map(function (response) {
             if (response)
                 return true;
-            else
+            else {
+                _this.router.navigateByUrl('notPermitted');
                 return false;
+            }
         })
             .catch(function (error) {
             return false;
@@ -33,7 +38,8 @@ var TaldorPermissionsGuard = (function () {
 }());
 TaldorPermissionsGuard = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [taldor_permissions_service_1.TaldorPermissionsService])
+    __metadata("design:paramtypes", [taldor_permissions_service_1.TaldorPermissionsService,
+        router_1.Router])
 ], TaldorPermissionsGuard);
 exports.TaldorPermissionsGuard = TaldorPermissionsGuard;
 //# sourceMappingURL=taldor-permissions-guard.service.js.map

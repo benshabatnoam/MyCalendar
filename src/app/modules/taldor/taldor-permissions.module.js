@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var taldor_permissions_service_1 = require("./taldor-permissions.service");
 var taldor_permissions_guard_service_1 = require("./taldor-permissions-guard.service");
+var taldor_permissions_routing_module_1 = require("./taldor-permissions-routing.module");
 var TaldorPermissionsModule = (function () {
     function TaldorPermissionsModule() {
     }
@@ -16,6 +17,12 @@ var TaldorPermissionsModule = (function () {
 }());
 TaldorPermissionsModule = __decorate([
     core_1.NgModule({
+        imports: [
+            taldor_permissions_routing_module_1.TaldorPermissionsRoutingModule
+        ],
+        declarations: [
+            taldor_permissions_routing_module_1.TaldorPermissionsComponents
+        ],
         providers: [
             taldor_permissions_service_1.TaldorPermissionsService,
             taldor_permissions_guard_service_1.TaldorPermissionsGuard
@@ -23,8 +30,4 @@ TaldorPermissionsModule = __decorate([
     })
 ], TaldorPermissionsModule);
 exports.TaldorPermissionsModule = TaldorPermissionsModule;
-exports.TaldorPermissionsProviders = [
-    taldor_permissions_service_1.TaldorPermissionsService,
-    taldor_permissions_guard_service_1.TaldorPermissionsGuard
-];
 //# sourceMappingURL=taldor-permissions.module.js.map
