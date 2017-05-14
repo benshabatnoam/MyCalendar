@@ -12,6 +12,7 @@ var animations_1 = require("@angular/platform-browser/animations");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var login_module_1 = require("./modules/login/login.module");
+var taldor_permissions_module_1 = require("./modules/taldor/taldor-permissions.module");
 var app_routing_module_1 = require("./app-routing.module");
 var day_service_1 = require("./services/day.service");
 var auth_service_1 = require("./services/auth.service");
@@ -33,6 +34,7 @@ AppModule = __decorate([
             forms_1.FormsModule,
             http_1.HttpModule,
             login_module_1.LoginModule,
+            taldor_permissions_module_1.TaldorPermissionsModule,
             app_routing_module_1.AppRoutingModule
         ],
         declarations: [

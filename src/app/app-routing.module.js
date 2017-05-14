@@ -13,8 +13,9 @@ var month_calendar_component_1 = require("./components/calendar/month/month-cale
 var day_details_component_1 = require("./components/forms/day-details/day-details.component");
 var edit_day_details_component_1 = require("./components/forms/edit-day-details/edit-day-details.component");
 var auth_guard_service_1 = require("./services/auth-guard.service");
+var taldor_permissions_guard_service_1 = require("./modules/taldor/taldor-permissions-guard.service");
 var routs = [
-    { path: 'edit', component: edit_day_details_component_1.EditDayDetailsComponent, canActivate: [auth_guard_service_1.AuthGuard] },
+    { path: 'edit', component: edit_day_details_component_1.EditDayDetailsComponent, canActivate: [auth_guard_service_1.AuthGuard, taldor_permissions_guard_service_1.TaldorPermissionsGuard] },
     { path: ':year', component: year_calendar_component_1.YearCalendarComponent },
     { path: ':year/:month', component: month_calendar_component_1.MonthCalendarComponent },
     { path: ':year/:month/:day', component: day_details_component_1.DayDetailsComponent }
