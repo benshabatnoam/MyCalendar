@@ -6,7 +6,7 @@ import 'rxjs/add/Operator/catch';
 
 @Injectable()
 export class TaldorPermissionsService {
-    serviceUrl: string = 'http://localhost/Permissions/services/api/Permissions/';
+    serviceUrl: string = 'http://localhost//Permissions/PermissionsServices/PermissionsServices/api/Permissions/';
 
     constructor(private http: Http) { }
 
