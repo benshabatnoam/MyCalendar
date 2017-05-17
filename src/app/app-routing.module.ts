@@ -16,16 +16,19 @@ const routs: Routes = [
         canActivate: [ AuthGuard, TaldorPermissionsGuard ]
     },
     {
-        path: ':year',
+        path: 'year/:year',
         component: YearCalendarComponent,
         canActivate: [ TaldorPermissionsGuard ]
     },
     {
-        path: ':year/:month',
+        path: 'month/:year/:month',
         component: MonthCalendarComponent,
         canActivate: [ TaldorPermissionsGuard ]
     },
-    { path: ':year/:month/:day', component: DayDetailsComponent }
+    {
+        path: 'day/:year/:month/:day',
+        component: DayDetailsComponent
+    }
 ]
 
 @NgModule({

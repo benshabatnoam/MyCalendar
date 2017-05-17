@@ -9,16 +9,27 @@ export class NavigateManager {
 
     init() {
         this.eventsManager.goToDateEmitter.subscribe((date) => {
-            if (date)
-                this.router.navigate([ date.getFullYear(), date.getMonth(), date.getDate() ]);
+            if (date) {
+                this.router.navigate([
+                    'day',
+                    date.getFullYear(),
+                    date.getMonth(),
+                    date.getDate()
+                ]);
+            }
         });
         this.eventsManager.goToMonthEmitter.subscribe((date) => {
-            if (date)
-                this.router.navigate([ date.getFullYear(), date.getMonth() ]);
+            if (date) {
+                this.router.navigate([
+                    'month',
+                    date.getFullYear(),
+                    date.getMonth()
+                ]);
+            }
         });
         this.eventsManager.goToYearEmitter.subscribe((year) => {
             if (year)
-                this.router.navigate([ year ]);
+                this.router.navigate([ 'year', year ]);
         });
     }
 }
