@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
     disconnect: string = 'התנתק';
     connect: string = 'התחבר';
 
-    constructor(private authService: AuthService) { }
+    constructor(public authService: AuthService) { }
 
     ngOnInit(): void {
         this.btnDesc = this.authService.isLoggedIn ? this.disconnect : this.connect;
