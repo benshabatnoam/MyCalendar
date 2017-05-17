@@ -16,7 +16,7 @@ export class TaldorPermissionsGuard implements CanActivate {
     private router: Router) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-        return this.permissionsService.isPermitted(state.url)
+        return this.permissionsService.isPagePermitted(state.url)
             .map(response => {
                 if (response)
                     return true;

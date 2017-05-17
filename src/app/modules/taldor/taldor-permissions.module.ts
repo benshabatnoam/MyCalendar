@@ -4,6 +4,8 @@ import { TaldorPermissionsService } from './taldor-permissions.service';
 
 import { TaldorPermissionsGuard } from './taldor-permissions-guard.service';
 
+import { TaldorPermissionsDirective } from './taldor-permissions.directive';
+
 import {
     TaldorPermissionsRoutingModule,
     TaldorPermissionsComponents
@@ -13,8 +15,12 @@ import {
     imports: [
         TaldorPermissionsRoutingModule
     ],
+    exports: [
+        TaldorPermissionsDirective
+    ],
     declarations: [
-        TaldorPermissionsComponents
+        TaldorPermissionsComponents,
+        TaldorPermissionsDirective
     ],
     providers: [
         TaldorPermissionsService,

@@ -10,10 +10,25 @@ export class TaldorPermissionsService {
 
     constructor(private http: Http) { }
 
-    isPermitted(url: string): Observable<boolean> {
+    isPagePermitted(url: string): Observable<boolean> {
         return this.http
             .post(
-                this.serviceUrl + 'IsPermitted?url=' + url,
+                this.serviceUrl + 'IsPagePermitted?url=' + url,
+                null,
+                { withCredentials: true}
+            )
+            .map((response) => {
+                return response.text().toString() == 'true';
+            })
+            .catch((error): any => {
+                console.error('error in isPermitted. error: ' + error)
+            });
+    }
+
+    isComponentPermitted(component: string): Observable<boolean> {
+        return this.http
+            .post(
+                this.serviceUrl + 'IsComponentPermitted?component=' + component,
                 null,
                 { withCredentials: true}
             )
