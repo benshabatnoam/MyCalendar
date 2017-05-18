@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Router, Routes } from '@angular/router';
 
+import { PageNotFoundComponent } from './components/page-not-found.component';
 import { YearCalendarComponent } from './components/calendar/year/year-calendar.component';
 import { MonthCalendarComponent } from './components/calendar/month/month-calendar.component';
 import { DayDetailsComponent } from './components/forms/day-details/day-details.component';
@@ -28,6 +29,10 @@ const routs: Routes = [
     {
         path: 'day/:year/:month/:day',
         component: DayDetailsComponent
+    },
+    {
+        path: '**',
+        component: PageNotFoundComponent
     }
 ]
 
@@ -41,6 +46,7 @@ export class AppRoutingModule{
 }
 
 export const AppComponents = [
+    PageNotFoundComponent,
     YearCalendarComponent,
     MonthCalendarComponent,
     DayDetailsComponent,
