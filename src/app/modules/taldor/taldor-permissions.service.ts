@@ -7,16 +7,16 @@ import 'rxjs/add/Operator/catch';
 @Injectable()
 export class TaldorPermissionsService {
     serviceUrl: string = 'http://localhost//Permissions/PermissionsServices/PermissionsServices/api/Permissions/';
-    permissions: string[];
+    permissions: { [url: string]: any } = {};
 
     constructor(private http: Http) { }
 
     isPagePermitted(url: string): Observable<boolean> | boolean {
-        if (!this.permissions) {
-            return this.http.get(this.serviceUrl + 'GetPagePermissions')
+        if (!this.permissions[url]) {
+            return this.http.post(this.serviceUrl + 'GetPagePermissions?url=' + url, null)
                 .map((response) => {
-                    this.permissions = response.json().split(';');
-                    return this.permissions.includes(url);
+                    this.permissions[url] = response.json();
+                    return this.permissions[url].IsPermitted;
                 })
                 .catch((error): any => {
                     console.error('error in isPermitted. error: ' + error)
@@ -24,7 +24,7 @@ export class TaldorPermissionsService {
                 });
         }
         else {
-            return this.permissions.includes(url);
+            return this.permissions[url].IsPermitted;
         }
     }
 
