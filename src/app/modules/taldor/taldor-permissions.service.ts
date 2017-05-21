@@ -4,10 +4,15 @@ import { Http } from '@angular/http';
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/Operator/catch';
 
+import {
+    TaldorPagesComponentsPermissionsDictionary,
+    TaldorComponentPermissions
+} from './models/taldor-permissions.models';
+
 @Injectable()
 export class TaldorPermissionsService {
     serviceUrl: string = 'http://localhost//Permissions/PermissionsServices/PermissionsServices/api/Permissions/';
-    permissions: { [url: string]: any } = {};
+    permissions: TaldorPagesComponentsPermissionsDictionary = {};
 
     constructor(private http: Http) { }
 
@@ -16,7 +21,17 @@ export class TaldorPermissionsService {
             return this.http.post(this.serviceUrl + 'GetPagePermissions?url=' + url, null)
                 .map((response) => {
                     this.permissions[url] = response.json();
-                    return this.permissions[url].IsPermitted;
+                    if (this.permissions[url] && this.permissions[url].components) {
+                        var componentPermissions: TaldorComponentPermissions[] = [];
+                        for (var key in this.permissions[url].components) {
+                            componentPermissions.push(this.permissions[url].components[key]);
+                        }
+                        this.permissions[url].components = {};
+                        componentPermissions.forEach(key => {
+                            this.permissions[url].components[key.name] = key;
+                        });
+                    }
+                    return this.permissions[url].isPermitted;
                 })
                 .catch((error): any => {
                     console.error('error in isPermitted. error: ' + error)
@@ -24,21 +39,14 @@ export class TaldorPermissionsService {
                 });
         }
         else {
-            return this.permissions[url].IsPermitted;
+            return this.permissions[url].isPermitted;
         }
     }
 
-    isComponentPermitted(component: string): Observable<boolean> {
-        return this.http
-            .post(
-                this.serviceUrl + 'IsComponentPermitted?component=' + component,
-                null
-            )
-            .map((response) => {
-                return response.text().toString() == 'true';
-            })
-            .catch((error): any => {
-                console.error('error in isPermitted. error: ' + error)
-            });
+    isComponentPermitted(url: string, component: string): boolean {
+        return this.permissions[url] &&
+            this.permissions[url].isPermitted &&
+            this.permissions[url].components[component] &&
+            this.permissions[url].components[component].isPermitted;
     }
 }
