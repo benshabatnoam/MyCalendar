@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Router, Routes } from '@angular/router';
 
+import { TestPageComponent } from './components/test-page.component';
 import { PageNotFoundComponent } from './components/page-not-found.component';
 import { YearCalendarComponent } from './components/calendar/year/year-calendar.component';
 import { MonthCalendarComponent } from './components/calendar/month/month-calendar.component';
@@ -11,6 +12,10 @@ import { AuthGuard } from './services/auth-guard.service';
 import { TaldorPermissionsGuard } from './modules/taldor/taldor-permissions-guard.service';
 
 const routs: Routes = [
+    {
+        path: 'test',
+        component: TestPageComponent
+    },
     {
         path: 'edit',
         component: EditDayDetailsComponent,
@@ -46,6 +51,7 @@ export class AppRoutingModule{
 }
 
 export const AppComponents = [
+    TestPageComponent,
     PageNotFoundComponent,
     YearCalendarComponent,
     MonthCalendarComponent,
