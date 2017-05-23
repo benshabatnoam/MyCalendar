@@ -6,8 +6,8 @@ import { HttpModule } from '@angular/http';
 
 import { LoginModule } from './modules/login/login.module';
 import { TaldorPermissionsModule} from './modules/taldor/taldor-permissions.module';
-
 import { AppRoutingModule, AppComponents, AppGuards } from './app-routing.module';
+import { ContextMenuModule } from './modules/context-menu/context-menu.module';
 
 import { DayService } from './services/day.service';
 import { AuthService } from './services/auth.service';
@@ -27,6 +27,7 @@ import { NavigateManager } from './managers/navigate.manager';
     HttpModule,
     LoginModule,
     TaldorPermissionsModule,
+    ContextMenuModule,
     AppRoutingModule
   ],
   declarations: [

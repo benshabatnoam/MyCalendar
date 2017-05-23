@@ -1,10 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { Subject } from "rxjs/Subject";
+
+import { EventsManager } from '../managers/events.manager';
+import { MenuItem } from '../modules/context-menu/menu-item';
 
 @Component({
     templateUrl: 'test-page.component.html',
     styleUrls: [ 'test-page.component.css' ]
 })
 
-export class TestPageComponent {
-    
+export class TestPageComponent implements OnInit {
+    menuItems: MenuItem[];
+
+    constructor(private eventsManager: EventsManager) {}
+
+    ngOnInit(): void {
+        this.menuItems = [
+            new MenuItem('This day', event => {
+                this.eventsManager.goToDate(new Date());
+            }),
+            new MenuItem('This month', event => {
+                this.eventsManager.goToMonth(new Date());
+            }),
+            new MenuItem('This year', event => {
+                this.eventsManager.goToYear(new Date().getFullYear());
+            })
+        ]
+    }
 }

@@ -1,6 +1,10 @@
+<context-menu-holder></context-menu-holder> 
 <h1>Test Page</h1>
+<div [context-menu]="menuItems" style="border-style:solid;display:inline-block">
+    Click Me!
+</div>
 <table class="table table-bordered">
-    <tr class="empty"><td></td></tr>
+    <tr [context-menu]="menuItems" class="empty"><td></td></tr>
     <tr class="full"><td></td></tr>
     <tr class="full"><td></td></tr>
 </table>

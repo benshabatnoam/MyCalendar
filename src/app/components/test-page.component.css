@@ -8,16 +8,6 @@ table {
 table td {
     border: none;
 }
-span {
-    font-size: 24pt;
-    font-weight: 600;
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-    display: flex;
-    justify-content: center; /* align horizontal */
-    align-items: center; /* align vertical */
-}
 .full {
     background: green;
 }

@@ -1,0 +1,5 @@
+<ul class="dropdown-menu" [ngStyle]="locationCss">
+    <li *ngFor="let menuItem of menuItems" style="cursor:pointer">
+        <a (click)="menuItem.execute();">{{menuItem.title}}</a>
+    </li>
+</ul>
