@@ -3,5 +3,5 @@ import { Subject } from "rxjs/Subject";
 
 @Injectable()
 export class ContextMenuService {
-    public show: Subject<{event, menuItems}> = new Subject();
+    public showContextMenu: Subject<{event, menuItems}> = new Subject();
 }

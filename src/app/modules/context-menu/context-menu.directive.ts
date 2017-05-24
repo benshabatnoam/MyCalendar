@@ -13,7 +13,7 @@ export class ContextMenuDirective {
     constructor(private cmService: ContextMenuService) {}
     
     rightClicked(event: MouseEvent) {
-        this.cmService.show.next({event:event, menuItems:this.menuItems});
+        this.cmService.showContextMenu.next({event:event, menuItems:this.menuItems});
         event.preventDefault();
     }
 }

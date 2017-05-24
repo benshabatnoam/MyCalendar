@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 
 import { MenuItem } from './menu-item';
 import { ContextMenuService } from './context-menu.service';
@@ -9,14 +9,14 @@ import { ContextMenuService } from './context-menu.service';
     templateUrl: 'context-menu-holder.component.html',
     host: {'(document:click)':'clickedOutside()'}
 })
-export class ContextMenuHolderComponent {
+export class ContextMenuHolderComponent implements OnDestroy {
     menuItems: MenuItem[];
     isShown = false;
     private mouseLocation :{left:number,top:number} = {left:0, top:0};
 
     constructor(private cmService: ContextMenuService) {
-        this.cmService.show.subscribe(e => {
-            this.show(e.event, e.menuItems);
+        this.cmService.showContextMenu.subscribe(e => {
+            this.showContextMenu(e.event, e.menuItems);
         })
     }
 
@@ -29,7 +29,7 @@ export class ContextMenuHolderComponent {
         };
     }
 
-    show(event, menuItems) {
+    showContextMenu(event, menuItems) {
         this.isShown = true;
         this.menuItems = menuItems;
         this.mouseLocation = {
@@ -40,5 +40,9 @@ export class ContextMenuHolderComponent {
     
     clickedOutside() {
         this.isShown = false;
+    }
+
+    ngOnDestroy(): void {
+        this.cmService.showContextMenu.unsubscribe();
     }
 }

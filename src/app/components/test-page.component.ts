@@ -12,6 +12,7 @@ import { MenuItem } from '../modules/context-menu/menu-item';
 
 export class TestPageComponent implements OnInit {
     menuItems: MenuItem[];
+    menuItems1: MenuItem[];
 
     constructor(private eventsManager: EventsManager) {}
 
@@ -26,6 +27,18 @@ export class TestPageComponent implements OnInit {
             new MenuItem('This year', event => {
                 this.eventsManager.goToYear(new Date().getFullYear());
             })
-        ]
+        ];
+
+        this.menuItems1 = [
+            new MenuItem('Action 1', event => {
+                this.eventsManager.goToDate(new Date());
+            }),
+            new MenuItem('Action 1', event => {
+                this.eventsManager.goToMonth(new Date());
+            }),
+            new MenuItem('Action 1', event => {
+                this.eventsManager.goToYear(new Date().getFullYear());
+            })
+        ];
     }
 }
