@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { LoginModule } from './modules/login/login.module';
-import { TaldorPermissionsModule} from './modules/taldor/taldor-permissions.module';
 import { AppRoutingModule, AppComponents, AppGuards } from './app-routing.module';
 import { ContextMenuModule } from './modules/context-menu/context-menu.module';
 
@@ -26,7 +25,6 @@ import { NavigateManager } from './managers/navigate.manager';
     FormsModule,
     HttpModule,
     LoginModule,
-    TaldorPermissionsModule,
     ContextMenuModule,
     AppRoutingModule
   ],
