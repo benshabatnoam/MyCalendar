@@ -1,43 +1,39 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions } from '@angular/http';
-
-import { Observable } from 'rxjs/Observable';
-
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
 
 import { DayDetails } from '../models/day-details';
 
 @Injectable()
 export class DayService {
-    months = ["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"];
-    days = [ 'ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
-    
-    serverURL = 'http://localhost/MyCalendarServer/';
-    getDayDetailsURL = this.serverURL + 'DayDetails/GetDayDetails';
-    saveDayDetailsURL = this.serverURL + 'DayDetails/SaveDayDetails';
-    
-    headers = new Headers({ 'Content-Type': 'application/json' });
-    options = new RequestOptions({ headers: this.headers });
+	months = ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"];
+	days = ['ראשון', 'שני', 'שלישי', 'רביעי', 'חמישי', 'שישי', 'שבת'];
 
-    constructor (private http: Http) { }
+	serverURL = 'http://localhost/MyCalendar.WebAPI/api/';
+	getDayDetailsURL = this.serverURL + 'DayDetails/GetDayDetails';
+	saveDayDetailsURL = this.serverURL + 'DayDetails/SaveDayDetails';
 
-    getDayName(date: Date) {
-        return this.days[date.getDay()];
-    }
+	headers = new Headers({ 'Content-Type': 'application/json' });
+	options = new RequestOptions({ headers: this.headers });
 
-    getMonthName(month: number) {
-        return this.months[month];
-    }
+	constructor(private http: Http) { }
 
-    getDayDetails(date: number, month: number, year: number) {
-        return this.http.post(this.getDayDetailsURL, { date, month, year }, this.options)
-            .toPromise();
-    }
+	getDayName(date: Date) {
+		return this.days[date.getDay()];
+	}
 
-    saveDayDetails(dayDetails: DayDetails) {
-        let json = JSON.stringify(dayDetails);
-        return this.http.post(this.saveDayDetailsURL, { dayDetails: json }, this.options)
-            .toPromise();
-    }
+	getMonthName(month: number) {
+		return this.months[month];
+	}
+
+	getDayDetails(date: number, month: number, year: number) {
+		return this.http.get(`${this.getDayDetailsURL}?date=${date}&month=${month}&year=${year}`)
+		.map((res:Response) => res.json());
+	}
+
+	saveDayDetails(dayDetails: DayDetails) {
+		let json = JSON.stringify(dayDetails);
+		return this.http.post(
+			this.saveDayDetailsURL, json, this.options);
+	}
 }
